@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package ShopServer;
+
+option go_package = "./ShopServer";
+
+import "userServer.proto";
+import "onlineShop.proto";
+
+service ShopServer {
+  rpc CreateShop(CreateShopReq) returns (CreateShopResp);
+  
+  rpc GetProductsList(GetProductsListReq) returns (GetProductsListResp);
+  rpc CreateProduct(CreateProductReq) returns (CreateProductResp);
+  rpc GetProduct(GetProductReq) returns (GetProductResp);
+  rpc UpdateProduct(UpdateProductReq) returns (UpdateProductResp);
+  rpc DeleteProduct(DeleteProductReq) returns (DeleteProductResp);
+}

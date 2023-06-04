@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package ShopServer;
+
+option go_package = "./ShopServer";
+
+import "google/protobuf/timestamp.proto";
+
+
+message GetProductsListReq{
+    string account = 1;
+}
+
+message GetProductsListResp{
+    int64 Code = 1;
+    string Msg = 2;
+    repeated ProductsListInfo data = 3;
+}
+
+message ProductsListInfo{
+    string ProductID = 1;
+    string Title = 2;
+    string Description = 3;
+    google.protobuf.Timestamp Created_at = 4;
+}
+
+message CreateProductReq{
+    string account = 1;
+    CreateProductInfo data = 2;
+}
+
+message CreateProductInfo{
+    string Title = 1;
+    string Description = 2;
+}
+
+message CreateProductResp{
+    int64 Code = 1;
+    string Msg = 2;
+}
+
+message GetProductReq{
+    string ProductID = 1;
+}
+
+message GetProductResp{
+    int64 Code = 1;
+    string Msg = 2;
+    GetProductRespInfo Data =  3;
+}
+
+message GetProductRespInfo{
+    string ProductID = 1;
+    string Title = 2;
+    string Description = 3;
+    google.protobuf.Timestamp Created_at = 4;
+}
+
+message UpdateProductReq{
+    string Account = 1;
+    UpdateProductReqInfo Data = 2;
+}
+
+message UpdateProductReqInfo{
+    string ProductID = 1;
+    string Title = 2;
+    string Description = 3;
+}
+message UpdateProductResp{
+    int64 Code = 1;
+    string Msg = 2;
+}
+message DeleteProductReq{
+    string Account = 1;
+    DeleteProductReqInfo Data = 2;
+}
+
+message DeleteProductReqInfo{
+    string ProductID = 1;
+
+}
+message DeleteProductResp{
+    int64 Code = 1;
+    string Msg = 2;
+}
